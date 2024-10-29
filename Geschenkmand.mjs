@@ -105,7 +105,9 @@ function berekenTotaal(geschenkmand)
  {
     let som = 0;
 
-    for (let item of geschenkmand) /*Deze lus doorloopt elk element (of geschenk) in de array geschenkmand. In elke iteratie wordt de waarde van item ingesteld op het huidige geschenk (zoals "Wijn", "Bier", of "Fruitsap").*/
+    for (let item of geschenkmand) /*met een for of loop kunnen we elke item doorlopen in onze array zou ook kunnen met een foreach.(zoals "Wijn", "Bier", of "Fruitsap").
+    source:https://stackoverflow.com/questions/3010840/loop-through-an-array-in-javascript  ==> 3. ES6 for-of statement
+    */
     {
         if (item === "Wijn") {
             som += 10;
@@ -116,7 +118,7 @@ function berekenTotaal(geschenkmand)
         }
     }
 
-        console.log("totaal van u aankoop is "+som+" EUR");
+        console.log("De waarde van je mand is: "+som+" EUR");
         return som;
 }
 
@@ -124,5 +126,46 @@ resultaat = berekenTotaal(geschenkmand);
 
 
 
+function berekenTotaalBTW(geschenkmand)
+ {
+    let som = 0;
+    let BTW =0;
+    for (let item of geschenkmand) /*met een for of loop kunnen we elke item doorlopen in onze array zou ook kunnen met een foreach.(zoals "Wijn", "Bier", of "Fruitsap").
+    source:https://stackoverflow.com/questions/3010840/loop-through-an-array-in-javascript  ==> 3. ES6 for-of statement
+    */
+    {
+        if (item === "Wijn") {
+            som += 10;
+            BTW = som / 100 * 21;
+        } else if (item === "Bier") {
+            som += 2;
+            BTW = som / 100 * 21;
+        } else if (item === "Fruitsap") {
+            som += 3;
+            BTW = som / 100 * 21;
+        }
+    }
 
+        console.log("Inclusief met btw is dit : "+BTW +" EUR");
+        return BTW;
+        
+}
+berekenTotaalBTW(geschenkmand);
+
+function lotterij()
+{
+    let nummer = Math.floor(Math.random()*10)+1; /*random nummer tussen 1 en 10 math.random*10 = tussen 0 en 9 +1 wordt dit 1 en 10
+    source: https://www.w3schools.com/js/js_random.asp */
+    if (nummer === 5)//Waarom 5? zo elke keer dat er 5 gerenereerd wordt krijgt onze klant een geschenk dus 1 kans op 10
+        {
+            console.log("Gefeliciteerd, Je hebt een geschenk gewonnen!")
+        }
+
+    else
+    {
+        console.log("Helaas, deze keer geen gratis geschenk.")
+    }
+}
+
+lotterij();
     process.exit();
